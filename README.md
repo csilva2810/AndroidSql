@@ -1,2 +1,2 @@
-# AndroidSql
-App android with connection with BD
+# Android Todo App
+Android todo App
