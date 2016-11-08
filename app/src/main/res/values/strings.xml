@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ToDoApp</string>
+    <string name="action_settings">Settings</string>
+    <string name="label_usuario">Usuário</string>
+    <string name="label_senha">Senha</string>
+    <string name="label_lembrar">Lembrar</string>
+    <string name="label_btn_entrar">Entrar</string>
+</resources>
