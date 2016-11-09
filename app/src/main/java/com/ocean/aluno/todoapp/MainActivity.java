@@ -8,8 +8,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import com.ocean.aluno.todoapp.dao.ToDoDAO;
+import com.ocean.aluno.todoapp.model.Todo;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    private TextView tvTodos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +34,38 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        tvTodos = (TextView) findViewById(R.id.tvTodos);
+
+        testarBanco();
+    }
+
+    private void testarBanco() {
+
+        ToDoDAO dao = new ToDoDAO(this);
+
+        Todo todo1 = new Todo();
+        todo1.setDescricao("Estudar Android!");
+
+        dao.criar(todo1);
+
+        Todo todo2 = new Todo();
+        todo2.setDescricao("Estudar Mais Ainda!");
+
+        dao.criar(todo2);
+
+        List<Todo> todos = dao.listarTodos();
+
+        StringBuilder sb = new StringBuilder();
+
+        for (Todo todo : todos) {
+
+            sb.append(todo.getDescricao());
+            sb.append("\n");
+        }
+
+        tvTodos.setText(sb);
+
     }
 
     @Override
